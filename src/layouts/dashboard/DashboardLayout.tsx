@@ -75,11 +75,10 @@ export default function DashboardLayout({ children }: Props) {
 
     return (
       <>
-        {/* <Header onOpenNav={handleOpen} /> */}
+        <Header onOpenNav={handleOpen} />
 
         <Box
           sx={{
-            background: { lg: 'linear-gradient(107.56deg, #4200FF 0.01%, #07EED6 100%)' },
             display: { lg: 'flex' },
             alignItems: 'center',
             justifyContent: 'center',

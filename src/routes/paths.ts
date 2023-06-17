@@ -10,11 +10,10 @@ const ROOTS_DASHBOARD = '/dashboard';
 
 export const PATH_AUTH = {
   login: '/login',
+  otp: '/otp',
 };
 
-export const PATH_PAGE = {
-  
-}
+export const PATH_PAGE = {};
 
 export const PATH_DASHBOARD = {
   root: ROOTS_DASHBOARD,

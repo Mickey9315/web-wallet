@@ -38,14 +38,17 @@ export const StyledSectionBg = styled('div')(({ theme }) => ({
 }));
 
 export const StyledContent = styled('div')(({ theme }) => ({
-  width: 480,
+  width: '100%',
+  height: '100%',
   margin: 'auto',
   display: 'flex',
-  minHeight: '100vh',
+  backgroundColor: theme.palette.common.white,
   justifyContent: 'center',
-  padding: theme.spacing(15, 2),
+  padding: '24px 20px',
   [theme.breakpoints.up('md')]: {
-    flexShrink: 0,
-    padding: theme.spacing(30, 8, 0, 8),
+    width: 375,
+    height: 740,
+    borderRadius: 20,
+    padding: '90px 20px',
   },
 }));

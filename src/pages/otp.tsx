@@ -3,19 +3,19 @@ import Head from 'next/head';
 // auth
 import GuestGuard from '../auth/GuestGuard';
 // sections
-import Login from '../sections/auth/Login';
+import Otp from 'src/sections/auth/OTP';
 
 // ----------------------------------------------------------------------
 
-export default function LoginPage() {
+export default function OtpPage() {
   return (
     <>
       <Head>
-        <title> Newwit - Login</title>
+        <title> Newwit - Enter OTP</title>
       </Head>
 
       <GuestGuard>
-        <Login />
+        <Otp />
       </GuestGuard>
     </>
   );
