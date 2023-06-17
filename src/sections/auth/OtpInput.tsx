@@ -2,7 +2,7 @@ import { styled } from '@mui/material/styles';
 import { Box } from '@mui/material';
 
 const StyledInput = styled('input')({
-  border: '2px solid #4200FF',
+  border: '1px solid #828282',
   borderRadius: '5px',
   width: 38,
   height: 61,
@@ -13,6 +13,9 @@ const StyledInput = styled('input')({
   lineHeight: '41px',
   '&:focus-visible': {
     outline: 'none',
+  },
+  '&:not([value=""])': {
+    border: '2px solid #4200FF',
   },
 });
 
