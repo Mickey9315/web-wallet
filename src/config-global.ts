@@ -1,5 +1,5 @@
 // routes
-import { PATH_DASHBOARD } from './routes/paths';
+import { PATH_PAGE } from './routes/paths';
 
 // API
 // ----------------------------------------------------------------------
@@ -29,7 +29,7 @@ export const AUTH0_API = {
 export const MAP_API = process.env.MAPBOX_API;
 
 // ROOT PATH AFTER LOGIN SUCCESSFUL
-export const PATH_AFTER_LOGIN = PATH_DASHBOARD.one;
+export const PATH_AFTER_LOGIN = PATH_PAGE.wallet;
 
 // LAYOUT
 // ----------------------------------------------------------------------
@@ -57,4 +57,48 @@ export const ICON = {
   NAV_ITEM: 24,
   NAV_ITEM_HORIZONTAL: 22,
   NAV_ITEM_MINI: 22,
+  SIZE: {
+    sm: 20,
+    md: 30,
+    lg: 40,
+    xl: 50,
+  },
+};
+
+export const FONT = {
+  xxs: {
+    fontWeight: '400',
+    fontSize: '10px',
+    lineHeight: '14px',
+  },
+  xs: {
+    fontWeight: '400',
+    fontSize: '12px',
+    lineHeight: '16px',
+  },
+  sm: {
+    fontWeight: '500',
+    fontSize: '12px',
+    lineHeight: '16px',
+  },
+  md: {
+    fontWeight: '400',
+    fontSize: '16px',
+    lineHeight: '22px',
+  },
+  lg: {
+    fontWeight: '700',
+    fontSize: '16px',
+    lineHeight: '22px',
+  },
+  xl: {
+    fontWeight: '700',
+    fontSize: '20px',
+    lineHeight: '27px',
+  },
+  xxl: {
+    fontWeight: '700',
+    fontSize: '48px',
+    lineHeight: '65px',
+  },
 };

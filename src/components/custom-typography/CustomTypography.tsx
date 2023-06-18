@@ -1,6 +1,6 @@
 import { Typography } from '@mui/material';
 import { TypographyProps } from '@mui/material';
-import { customFontStyle } from './styles';
+import { FONT } from 'src/config-global';
 
 type Props = {
   size?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
@@ -10,7 +10,7 @@ type Props = {
 
 const CustomTypography = ({ size = 'md', sx, children, ...other }: Props) => {
   return (
-    <Typography sx={{ ...sx, ...customFontStyle[size] }} {...other}>
+    <Typography sx={{ ...sx, ...FONT[size] }} {...other}>
       {children}
     </Typography>
   );

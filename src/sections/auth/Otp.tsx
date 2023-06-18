@@ -7,6 +7,7 @@ import CustomButton from 'src/components/custom-button/CustomButton';
 import CustomTypography from 'src/components/custom-typography/CustomTypography';
 import LoginLayout from 'src/layouts/login/LoginLayout';
 import OtpInput from './OtpInput';
+import { PATH_PAGE } from 'src/routes/paths';
 
 export default function Otp() {
   const router = useRouter();
@@ -14,7 +15,7 @@ export default function Otp() {
   const [otp, setOtp] = useState('');
 
   const handleConfirm = () => {
-    router.push('/dashboard');
+    router.push(PATH_PAGE.wallet);
   };
 
   return (
