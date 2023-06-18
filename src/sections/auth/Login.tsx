@@ -2,14 +2,17 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 // @mui
 import { Stack, Typography, Select, MenuItem, Divider, TextField, Box } from '@mui/material';
-// layouts
-import LoginLayout from '../../layouts/login';
-//
+
+// components
+import { FONT } from 'src/config-global';
+import { PATH_AUTH } from 'src/routes/paths';
+
 import Image from 'src/components/image/Image';
 import CustomButton from 'src/components/custom-button/CustomButton';
 import CustomTypography from 'src/components/custom-typography/CustomTypography';
-import { PATH_AUTH } from 'src/routes/paths';
-import { FONT } from 'src/config-global';
+
+// layouts
+import LoginLayout from '../../layouts/login';
 
 // ----------------------------------------------------------------------
 
@@ -85,7 +88,7 @@ export default function Login() {
             </Stack>
           </Stack>
         </Box>
-        <CustomButton disabled={phoneNumber == '' ? true : false} onClick={handleConfirm}>
+        <CustomButton disabled={phoneNumber === ''} onClick={handleConfirm}>
           Confirm
         </CustomButton>
       </Stack>

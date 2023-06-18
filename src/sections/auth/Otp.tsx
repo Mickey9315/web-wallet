@@ -3,11 +3,12 @@ import { useRouter } from 'next/router';
 
 import { Box, Stack } from '@mui/material';
 
+import { PATH_PAGE } from 'src/routes/paths';
+
 import CustomButton from 'src/components/custom-button/CustomButton';
 import CustomTypography from 'src/components/custom-typography/CustomTypography';
 import LoginLayout from 'src/layouts/login/LoginLayout';
 import OtpInput from './OtpInput';
-import { PATH_PAGE } from 'src/routes/paths';
 
 export default function Otp() {
   const router = useRouter();
@@ -41,7 +42,7 @@ export default function Otp() {
             </CustomTypography>
           </Box>
         </Box>
-        <CustomButton disabled={otp.length == 4 ? false : true} onClick={handleConfirm}>
+        <CustomButton disabled={otp.length !== 4} onClick={handleConfirm}>
           Confirm
         </CustomButton>
       </Stack>

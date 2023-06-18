@@ -5,8 +5,6 @@ const StyledContainer = styled(Container)({
   padding: '0 20px',
 });
 
-const CustomContainer = ({ children, ...other }: any) => {
-  return <StyledContainer>{children}</StyledContainer>;
-};
+const CustomContainer = ({ children }: any) => <StyledContainer>{children}</StyledContainer>;
 
 export default CustomContainer;
