@@ -26,9 +26,13 @@ type Props = {
   validationPattern?: RegExp;
 };
 
-const OtpInput = (props: Props) => {
-  const { size = 4, validationPattern = /[0-9]{1}/, value, onChange, ...other } = props;
-
+const OtpInput = ({
+  size = 4,
+  validationPattern = /[0-9]{1}/,
+  value,
+  onChange,
+  ...other
+}: Props) => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
     const elem = e.target;
     const val = e.target.value;
@@ -41,7 +45,7 @@ const OtpInput = (props: Props) => {
     const newVal = valueArr.join('').slice(0, size);
     onChange(newVal);
 
-    //focus the next element if there's a value
+    // focus the next element if there's a value
     if (val) {
       const next = elem.nextElementSibling as HTMLInputElement | null;
       next?.focus();
@@ -54,14 +58,12 @@ const OtpInput = (props: Props) => {
       const prev = current.previousElementSibling as HTMLInputElement | null;
       prev?.focus();
       prev?.setSelectionRange(0, 1);
-      return;
     }
 
     if (e.key === 'ArrowRight') {
       const prev = current.nextSibling as HTMLInputElement | null;
       prev?.focus();
       prev?.setSelectionRange(0, 1);
-      return;
     }
   };
 
@@ -75,24 +77,21 @@ const OtpInput = (props: Props) => {
   const arr = new Array(size).fill('-');
   return (
     <Box display="flex" justifyContent="space-between">
-      {/* Map through the array and render input components */}
-      {arr.map((_, index) => {
-        return (
-          <StyledInput
-            key={index}
-            {...other}
-            type="text"
-            inputMode="numeric"
-            autoComplete="one-time-code"
-            pattern={validationPattern.source}
-            maxLength={size}
-            value={value.at(index) ?? ''}
-            onChange={(e) => handleInputChange(e, index)}
-            onKeyUp={handleKeyUp}
-            onPaste={handlePaste}
-          />
-        );
-      })}
+      {arr.map((_, index) => (
+        <StyledInput
+          key={index}
+          {...other}
+          type="text"
+          inputMode="numeric"
+          autoComplete="one-time-code"
+          pattern={validationPattern.source}
+          maxLength={size}
+          value={value.at(index) ?? ''}
+          onChange={(e) => handleInputChange(e, index)}
+          onKeyUp={handleKeyUp}
+          onPaste={handlePaste}
+        />
+      ))}
     </Box>
   );
 };

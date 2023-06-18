@@ -22,12 +22,10 @@ const StyledButton = styled(Button)({
   },
 });
 
-const CustomButton = ({ children, ...other }: any) => {
-  return (
-    <StyledButton {...other}>
-      <Box component="span">{children}</Box>
-    </StyledButton>
-  );
-};
+const CustomButton = ({ children, ...other }: any) => (
+  <StyledButton {...other}>
+    <Box component="span">{children}</Box>
+  </StyledButton>
+);
 
 export default CustomButton;
