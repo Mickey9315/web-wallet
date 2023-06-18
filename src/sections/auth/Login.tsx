@@ -8,8 +8,8 @@ import LoginLayout from '../../layouts/login';
 import Image from 'src/components/image/Image';
 import CustomButton from 'src/components/custom-button/CustomButton';
 import CustomTypography from 'src/components/custom-typography/CustomTypography';
-import { customFontStyle } from 'src/components/custom-typography';
-
+import { PATH_AUTH } from 'src/routes/paths';
+import { FONT } from 'src/config-global';
 
 // ----------------------------------------------------------------------
 
@@ -27,7 +27,7 @@ export default function Login() {
   const [phoneNumber, setPhoneNumber] = useState('');
 
   const handleConfirm = () => {
-    router.push('/otp');
+    router.push(PATH_AUTH.otp);
   };
 
   return (
@@ -47,6 +47,9 @@ export default function Login() {
             height={62}
             px={2.5}
             alignItems="center"
+            divider={
+              <Divider orientation="vertical" sx={{ borderColor: '#E0E0E0', mx: 1.5 }} flexItem />
+            }
           >
             <Select
               value={selectedIndex}
@@ -64,21 +67,22 @@ export default function Login() {
                 </MenuItem>
               ))}
             </Select>
-            <Divider orientation="vertical" sx={{ borderColor: '#E0E0E0', mx: 1.5 }} />
-            <Typography fontSize="16px" lineHeight="22px">
-              {codes[selectedIndex].phoneCode}
-            </Typography>
-            <TextField
-              type="tel"
-              placeholder="0000-0000"
-              value={phoneNumber}
-              onChange={(e) => setPhoneNumber(e.target.value)}
-              sx={{
-                '.MuiOutlinedInput-notchedOutline': { border: '0 !important' },
-                '.MuiInputBase-input': { p: '0', ml: '12px', ...customFontStyle.md },
-                '&:placeholder': { color: '#828282' },
-              }}
-            />
+            <Stack direction="row" alignItems="center">
+              <Typography fontSize="16px" lineHeight="22px">
+                {codes[selectedIndex].phoneCode}
+              </Typography>
+              <TextField
+                type="tel"
+                placeholder="0000-0000"
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
+                sx={{
+                  '.MuiOutlinedInput-notchedOutline': { border: '0 !important' },
+                  '.MuiInputBase-input': { p: '0', ml: '12px', ...FONT.md },
+                  '&:placeholder': { color: '#828282' },
+                }}
+              />
+            </Stack>
           </Stack>
         </Box>
         <CustomButton disabled={phoneNumber == '' ? true : false} onClick={handleConfirm}>

@@ -42,6 +42,7 @@ export const StyledContent = styled('div')(({ theme }) => ({
   height: '100%',
   margin: 'auto',
   display: 'flex',
+  overflowY: 'auto',
   backgroundColor: theme.palette.common.white,
   justifyContent: 'center',
   padding: '24px 20px',

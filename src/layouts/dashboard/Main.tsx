@@ -6,6 +6,7 @@ import useResponsive from '../../hooks/useResponsive';
 import { HEADER, NAV } from '../../config-global';
 // components
 import { useSettingsContext } from '../../components/settings';
+import { StyledContent, StyledRoot } from './styles';
 
 // ----------------------------------------------------------------------
 
@@ -39,5 +40,9 @@ export default function Main({ children, sx, ...other }: BoxProps) {
     );
   }
 
-  return <Box component="main">{children}</Box>;
+  return (
+    <StyledRoot>
+      <StyledContent>{children}</StyledContent>
+    </StyledRoot>
+  );
 }

@@ -7,8 +7,8 @@ export default function Index() {
   const router = useRouter();
 
   useEffect(() => {
-    if (router.pathname === '/dashboard') {
-      router.push('/dashboard/one');
+    if (router.pathname === '/wallet') {
+      router.push('/wallet/dashboard');
     }
   });
 
