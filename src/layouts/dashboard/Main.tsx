@@ -7,6 +7,7 @@ import { HEADER, NAV } from '../../config-global';
 // components
 import { useSettingsContext } from '../../components/settings';
 import { StyledContent, StyledRoot } from './styles';
+import Scrollbar from 'src/components/scrollbar/Scrollbar';
 
 // ----------------------------------------------------------------------
 
@@ -42,7 +43,9 @@ export default function Main({ children, sx, ...other }: BoxProps) {
 
   return (
     <StyledRoot>
-      <StyledContent>{children}</StyledContent>
+      <StyledContent>
+        <Scrollbar>{children}</Scrollbar>
+      </StyledContent>
     </StyledRoot>
   );
 }

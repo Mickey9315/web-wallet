@@ -9,6 +9,7 @@ export const StyledRoot = styled('main')(() => ({
   height: '100%',
   display: 'flex',
   position: 'relative',
+  minHeight: '100vh',
 }));
 
 export const StyledSection = styled('div')(({ theme }) => ({
@@ -48,7 +49,7 @@ export const StyledContent = styled('div')(({ theme }) => ({
   padding: '24px 20px',
   [theme.breakpoints.up('md')]: {
     width: 375,
-    height: 740,
+    height: 760,
     borderRadius: 20,
     padding: '90px 20px',
   },
