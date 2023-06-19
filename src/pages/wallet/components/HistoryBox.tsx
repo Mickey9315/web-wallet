@@ -53,8 +53,8 @@ export default function HistoryBox() {
         </Button>
       </Stack>
       <Stack mt={1.5} divider={<Divider sx={{ borderColor: '#E0E0E0', my: 1 }} flexItem />}>
-        {items.map((item) => (
-          <HistoryItem {...item} />
+        {items.map((item, idx) => (
+          <HistoryItem key={idx} {...item} />
         ))}
       </Stack>
     </Box>
