@@ -5,7 +5,7 @@ import Iconify from 'src/components/iconify/Iconify';
 import Image from 'src/components/image/Image';
 import { ICON } from 'src/config-global';
 
-export default function WalletHeader() {
+export default function MainHeader() {
   return (
     <Stack direction="row" justifyContent="space-between" py={1.5} alignItems="center">
       <Stack direction="row" spacing={2} alignItems="center">

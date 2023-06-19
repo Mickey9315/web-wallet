@@ -5,7 +5,6 @@ function path(root: string, sublink: string) {
 }
 
 // ----------------------------------------------------------------------
-const ROOTS_WALLET = '/wallet';
 
 export const PATH_AUTH = {
   login: '/login',
@@ -16,6 +15,10 @@ export const PATH_PAGE = {
   wallet: '/wallet',
 };
 
+const ROOTS_WALLET = '/wallet';
+
 export const PATH_WALLET = {
   root: ROOTS_WALLET,
+  dashboard: path(ROOTS_WALLET, '/dashboard'),
+  toFriend: path(ROOTS_WALLET, '/to-friend'),
 };

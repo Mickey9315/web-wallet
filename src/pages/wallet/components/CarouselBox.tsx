@@ -1,16 +1,19 @@
 import { useRef } from 'react';
 // @mui
-import { Box, Stack, Typography } from '@mui/material';
+import { Box, Stack } from '@mui/material';
 // components
 import Carousel, { CarouselDots } from 'src/components/carousel';
 import CustomTypography from 'src/components/custom-typography/CustomTypography';
 import Image from 'src/components/image/Image';
 import { ICON } from 'src/config-global';
 import Iconify from 'src/components/iconify/Iconify';
+import CustomLink from 'src/components/clickable-box/CustomLink';
+import AddressBox from 'src/components/address-box/AddressBox';
+import { PATH_WALLET } from 'src/routes/paths';
 
 // ----------------------------------------------------------------------
 
-export default function CarouselBox(Props: any) {
+export default function CarouselBox() {
   const carouselRef = useRef<Carousel | null>(null);
 
   const carouselSettings = {
@@ -46,27 +49,33 @@ export default function CarouselBox(Props: any) {
             </Box>
           </Stack>
           <Stack direction="row" justifyContent="space-between" alignItems="center" width={1}>
-            <Stack spacing={1} alignItems="center">
-              <Image
-                src="/assets/icons/wallets/ic_wisdom_40_grey.svg"
-                sx={{ width: ICON.SIZE.lg, height: ICON.SIZE.lg }}
-              />
-              <CustomTypography size="xs">Deposit</CustomTypography>
-            </Stack>
-            <Stack spacing={1} alignItems="center">
-              <Image
-                src="/assets/icons/wallets/ic_wis_40_grey.svg"
-                sx={{ width: ICON.SIZE.lg, height: ICON.SIZE.lg }}
-              />
-              <CustomTypography size="xs">To WIS</CustomTypography>
-            </Stack>
-            <Stack spacing={1} alignItems="center">
-              <Image
-                src="/assets/icons/wallets/ic_to_friends_40.svg"
-                sx={{ width: ICON.SIZE.lg, height: ICON.SIZE.lg }}
-              />
-              <CustomTypography size="xs">To Friends</CustomTypography>
-            </Stack>
+            <CustomLink>
+              <Stack spacing={1} alignItems="center" sx={{ '&:hover': { cursor: 'pointer' } }}>
+                <Image
+                  src="/assets/icons/wallets/ic_wisdom_40_grey.svg"
+                  sx={{ width: ICON.SIZE.lg, height: ICON.SIZE.lg }}
+                />
+                <CustomTypography size="xs">Deposit</CustomTypography>
+              </Stack>
+            </CustomLink>
+            <CustomLink>
+              <Stack spacing={1} alignItems="center">
+                <Image
+                  src="/assets/icons/wallets/ic_wis_40_grey.svg"
+                  sx={{ width: ICON.SIZE.lg, height: ICON.SIZE.lg }}
+                />
+                <CustomTypography size="xs">To WIS</CustomTypography>
+              </Stack>
+            </CustomLink>
+            <CustomLink href={PATH_WALLET.toFriend}>
+              <Stack spacing={1} alignItems="center">
+                <Image
+                  src="/assets/icons/wallets/ic_to_friends_40.svg"
+                  sx={{ width: ICON.SIZE.lg, height: ICON.SIZE.lg }}
+                />
+                <CustomTypography size="xs">To Friends</CustomTypography>
+              </Stack>
+            </CustomLink>
           </Stack>
         </CarouselItem>
         <CarouselItem bg="/assets/images/backgrounds/bg_wis_pattern.png" bgcolor="#FFB21A4D">
@@ -81,44 +90,38 @@ export default function CarouselBox(Props: any) {
                 WIS
               </CustomTypography>
             </Box>
-            <Box
-              sx={{
-                position: 'absolute',
-                background: 'linear-gradient(to right, #4423FF, #07EED6)',
-                p: '1px',
-                borderRadius: '100px',
-                top: '75px',
-              }}
-            >
-              <Box bgcolor="white" p={1.25} borderRadius="100px">
-                <Typography fontWeight="bold" fontSize="12px" lineHeight="14px">
-                  0xf253fc2ca ... ... 49892172
-                </Typography>
-              </Box>
+            <Box position="absolute" top="75px">
+              <AddressBox address="0xf253fc2ca ... ... 49892172" />
             </Box>
           </Stack>
           <Stack direction="row" justifyContent="space-between" alignItems="center" width={1}>
-            <Stack spacing={1} alignItems="center">
-              <Image
-                src="/assets/icons/wallets/ic_wis_40_grey.svg"
-                sx={{ width: ICON.SIZE.lg, height: ICON.SIZE.lg }}
-              />
-              <CustomTypography size="xs">Deposit</CustomTypography>
-            </Stack>
-            <Stack spacing={1} alignItems="center">
-              <Image
-                src="/assets/icons/wallets/ic_wisdom_40_grey.svg"
-                sx={{ width: ICON.SIZE.lg, height: ICON.SIZE.lg }}
-              />
-              <CustomTypography size="xs">To WISDOM</CustomTypography>
-            </Stack>
-            <Stack spacing={1} alignItems="center">
-              <Image
-                src="/assets/icons/wallets/ic_matic_40_grey.svg"
-                sx={{ width: ICON.SIZE.lg, height: ICON.SIZE.lg }}
-              />
-              <CustomTypography size="xs">To External</CustomTypography>
-            </Stack>
+            <CustomLink>
+              <Stack spacing={1} alignItems="center">
+                <Image
+                  src="/assets/icons/wallets/ic_wis_40_grey.svg"
+                  sx={{ width: ICON.SIZE.lg, height: ICON.SIZE.lg }}
+                />
+                <CustomTypography size="xs">Deposit</CustomTypography>
+              </Stack>
+            </CustomLink>
+            <CustomLink>
+              <Stack spacing={1} alignItems="center">
+                <Image
+                  src="/assets/icons/wallets/ic_wisdom_40_grey.svg"
+                  sx={{ width: ICON.SIZE.lg, height: ICON.SIZE.lg }}
+                />
+                <CustomTypography size="xs">To WISDOM</CustomTypography>
+              </Stack>
+            </CustomLink>
+            <CustomLink>
+              <Stack spacing={1} alignItems="center">
+                <Image
+                  src="/assets/icons/wallets/ic_matic_40_grey.svg"
+                  sx={{ width: ICON.SIZE.lg, height: ICON.SIZE.lg }}
+                />
+                <CustomTypography size="xs">To External</CustomTypography>
+              </Stack>
+            </CustomLink>
           </Stack>
         </CarouselItem>
         <CarouselItem bg="/assets/images/backgrounds/bg_matic_pattern.png" bgcolor="#FFFFFF">
@@ -133,37 +136,29 @@ export default function CarouselBox(Props: any) {
                 MATIC
               </CustomTypography>
             </Box>
-            <Box
-              sx={{
-                position: 'absolute',
-                background: 'linear-gradient(to right, #4423FF, #07EED6)',
-                p: '1px',
-                borderRadius: '100px',
-                top: '75px',
-              }}
-            >
-              <Box bgcolor="white" p={1.25} borderRadius="100px">
-                <Typography fontWeight="bold" fontSize="12px" lineHeight="14px">
-                  0xf253fc2ca ... ... 49892172
-                </Typography>
-              </Box>
+            <Box position="absolute" top="75px">
+              <AddressBox address="0xf253fc2ca ... ... 49892172" />
             </Box>
           </Stack>
           <Stack direction="row" justifyContent="space-between" alignItems="center" width={1}>
-            <Stack spacing={1} alignItems="center">
-              <Image
-                src="/assets/icons/wallets/ic_deposit.svg"
-                sx={{ width: ICON.SIZE.lg, height: ICON.SIZE.lg }}
-              />
-              <CustomTypography size="xs">Deposit</CustomTypography>
-            </Stack>
-            <Stack spacing={1} alignItems="center">
-              <Image
-                src="/assets/icons/wallets/ic_withdraw.svg"
-                sx={{ width: ICON.SIZE.lg, height: ICON.SIZE.lg }}
-              />
-              <CustomTypography size="xs">Widthdraw</CustomTypography>
-            </Stack>
+            <CustomLink>
+              <Stack spacing={1} alignItems="center">
+                <Image
+                  src="/assets/icons/wallets/ic_deposit.svg"
+                  sx={{ width: ICON.SIZE.lg, height: ICON.SIZE.lg }}
+                />
+                <CustomTypography size="xs">Deposit</CustomTypography>
+              </Stack>
+            </CustomLink>
+            <CustomLink>
+              <Stack spacing={1} alignItems="center">
+                <Image
+                  src="/assets/icons/wallets/ic_withdraw.svg"
+                  sx={{ width: ICON.SIZE.lg, height: ICON.SIZE.lg }}
+                />
+                <CustomTypography size="xs">Widthdraw</CustomTypography>
+              </Stack>
+            </CustomLink>
           </Stack>
         </CarouselItem>
       </Carousel>

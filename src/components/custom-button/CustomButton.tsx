@@ -1,5 +1,5 @@
 import { styled } from '@mui/material/styles';
-import { Box, Button } from '@mui/material';
+import { Box, Button, ButtonProps } from '@mui/material';
 
 const StyledButton = styled(Button)({
   width: '100%',
@@ -22,7 +22,11 @@ const StyledButton = styled(Button)({
   },
 });
 
-const CustomButton = ({ children, ...other }: any) => (
+type Props = {
+  children: React.ReactNode;
+} & ButtonProps;
+
+const CustomButton = ({ children, ...other }: Props) => (
   <StyledButton {...other}>
     <Box component="span">{children}</Box>
   </StyledButton>

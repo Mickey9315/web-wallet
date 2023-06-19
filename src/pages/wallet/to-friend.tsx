@@ -6,32 +6,26 @@ import Head from 'next/head';
 import CustomContainer from 'src/components/custom-container/CustomContainer';
 import DashboardLayout from '../../layouts/dashboard';
 
-import MainHeader from './components/MainHeader';
-import CarouselBox from './components/CarouselBox';
-import HistoryBox from './components/HistoryBox';
+import { PATH_WALLET } from 'src/routes/paths';
+
+import SubHeader from './components/SubHeader';
 
 // ----------------------------------------------------------------------
 
-Dashboard.getLayout = (page: React.ReactElement) => <DashboardLayout>{page}</DashboardLayout>;
+ToFriend.getLayout = (page: React.ReactElement) => <DashboardLayout>{page}</DashboardLayout>;
 
 // ----------------------------------------------------------------------
 
-export default function Dashboard() {
+export default function ToFriend() {
   return (
     <>
       <Head>
-        <title> Newwit - Wallet</title>
+        <title> Newwit - Wallet - To Friend</title>
       </Head>
 
       <CustomContainer>
         <Box>
-          <MainHeader />
-        </Box>
-        <Box mt={2.5}>
-          <CarouselBox />
-        </Box>
-        <Box mt={2.5}>
-          <HistoryBox />
+          <SubHeader title="To Friend" back={PATH_WALLET.dashboard} />
         </Box>
       </CustomContainer>
     </>
