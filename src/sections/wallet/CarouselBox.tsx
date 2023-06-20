@@ -7,7 +7,7 @@ import CustomTypography from 'src/components/custom-typography/CustomTypography'
 import Image from 'src/components/image/Image';
 import { ICON } from 'src/config-global';
 import Iconify from 'src/components/iconify/Iconify';
-import CustomLink from 'src/components/clickable-box/CustomLink';
+import CustomLink from 'src/components/custom-link/CustomLink';
 import AddressBox from 'src/components/address-box/AddressBox';
 import { PATH_WALLET } from 'src/routes/paths';
 
@@ -49,7 +49,7 @@ export default function CarouselBox() {
             </Box>
           </Stack>
           <Stack direction="row" justifyContent="space-between" alignItems="center" width={1}>
-            <CustomLink>
+            <CustomLink href={PATH_WALLET.dashboard}>
               <Stack spacing={1} alignItems="center" sx={{ '&:hover': { cursor: 'pointer' } }}>
                 <Image
                   src="/assets/icons/wallets/ic_wisdom_40_grey.svg"
@@ -58,7 +58,7 @@ export default function CarouselBox() {
                 <CustomTypography size="xs">Deposit</CustomTypography>
               </Stack>
             </CustomLink>
-            <CustomLink>
+            <CustomLink href={PATH_WALLET.dashboard}>
               <Stack spacing={1} alignItems="center">
                 <Image
                   src="/assets/icons/wallets/ic_wis_40_grey.svg"
@@ -95,7 +95,7 @@ export default function CarouselBox() {
             </Box>
           </Stack>
           <Stack direction="row" justifyContent="space-between" alignItems="center" width={1}>
-            <CustomLink>
+            <CustomLink href={PATH_WALLET.dashboard}>
               <Stack spacing={1} alignItems="center">
                 <Image
                   src="/assets/icons/wallets/ic_wis_40_grey.svg"
@@ -104,7 +104,7 @@ export default function CarouselBox() {
                 <CustomTypography size="xs">Deposit</CustomTypography>
               </Stack>
             </CustomLink>
-            <CustomLink>
+            <CustomLink href={PATH_WALLET.dashboard}>
               <Stack spacing={1} alignItems="center">
                 <Image
                   src="/assets/icons/wallets/ic_wisdom_40_grey.svg"
@@ -113,7 +113,7 @@ export default function CarouselBox() {
                 <CustomTypography size="xs">To WISDOM</CustomTypography>
               </Stack>
             </CustomLink>
-            <CustomLink>
+            <CustomLink href={PATH_WALLET.dashboard}>
               <Stack spacing={1} alignItems="center">
                 <Image
                   src="/assets/icons/wallets/ic_matic_40_grey.svg"
@@ -141,7 +141,7 @@ export default function CarouselBox() {
             </Box>
           </Stack>
           <Stack direction="row" justifyContent="space-between" alignItems="center" width={1}>
-            <CustomLink>
+            <CustomLink href={PATH_WALLET.dashboard}>
               <Stack spacing={1} alignItems="center">
                 <Image
                   src="/assets/icons/wallets/ic_deposit.svg"
@@ -150,7 +150,7 @@ export default function CarouselBox() {
                 <CustomTypography size="xs">Deposit</CustomTypography>
               </Stack>
             </CustomLink>
-            <CustomLink>
+            <CustomLink href={PATH_WALLET.dashboard}>
               <Stack spacing={1} alignItems="center">
                 <Image
                   src="/assets/icons/wallets/ic_withdraw.svg"

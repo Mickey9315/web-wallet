@@ -6,9 +6,9 @@ import Head from 'next/head';
 import CustomContainer from 'src/components/custom-container/CustomContainer';
 import DashboardLayout from '../../layouts/dashboard';
 
-import MainHeader from './components/MainHeader';
-import CarouselBox from './components/CarouselBox';
-import HistoryBox from './components/HistoryBox';
+import MainHeader from '../../sections/wallet/MainHeader';
+import CarouselBox from '../../sections/wallet/CarouselBox';
+import HistoryBox from '../../sections/wallet/HistoryBox';
 
 // ----------------------------------------------------------------------
 

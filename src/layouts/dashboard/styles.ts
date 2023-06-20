@@ -3,7 +3,6 @@ import { styled } from '@mui/material/styles';
 export const StyledRoot = styled('main')(() => ({
   height: '100%',
   display: 'flex',
-  alignItems: 'center',
   position: 'relative',
   minHeight: '100vh',
 }));
@@ -11,6 +10,8 @@ export const StyledRoot = styled('main')(() => ({
 export const StyledContent = styled('div')(({ theme }) => ({
   width: '100%',
   height: '100%',
+  display: 'flex',
+  justifyContent: 'center',
   minHeight: '100vh',
   margin: 'auto',
   overflowY: 'auto',
