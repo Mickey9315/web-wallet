@@ -49,7 +49,7 @@ export default function CarouselBox() {
             </Box>
           </Stack>
           <Stack direction="row" justifyContent="space-between" alignItems="center" width={1}>
-            <CustomLink href={PATH_WALLET.dashboard}>
+            <CustomLink href={PATH_WALLET.deposit}>
               <Stack spacing={1} alignItems="center" sx={{ '&:hover': { cursor: 'pointer' } }}>
                 <Image
                   src="/assets/icons/wallets/ic_wisdom_40_grey.svg"

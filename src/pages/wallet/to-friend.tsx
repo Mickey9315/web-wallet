@@ -67,7 +67,7 @@ export default function ToFriend() {
           <SubHeader title="To Friend" back={PATH_WALLET.dashboard} />
         </Box>
         <Stack mt={1} justifyContent="space-between" height={1}>
-          <Stack spacing="25px">
+          <Stack spacing={3}>
             <CustomForm label="To">
               <CustomAutocomplete
                 value={account}
