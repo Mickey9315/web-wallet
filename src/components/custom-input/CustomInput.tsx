@@ -8,6 +8,10 @@ const StyledTextField = styled(TextField)({
     padding: '0 12px',
     border: '1px solid #828282',
     borderRadius: '10px',
+    '& > input': {
+      paddingLeft: 0,
+      paddingRight: 0,
+    },
     ...FONT.md,
   },
   '& .MuiOutlinedInput-notchedOutline': { border: '0 !important' },

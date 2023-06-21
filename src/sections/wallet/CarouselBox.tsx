@@ -185,7 +185,17 @@ function CarouselItem({ bg, bgcolor, children }: CarouselItemProps) {
         top="12px"
         right="10px"
         icon="system-uicons:refresh"
-        sx={{ width: 18, height: 18, color: '#828282', transform: 'rotate(60deg)' }}
+        sx={{
+          width: 18,
+          height: 18,
+          color: '#828282',
+          transform: 'rotate(60deg)',
+          transition: 'transform 0.2s ease-in-out',
+          '&:hover': {
+            cursor: 'pointer',
+            transform: 'rotate(90deg)',
+          },
+        }}
       />
       <Stack justifyContent="space-between" alignItems="center" spacing={8.25} position="relative">
         {children}

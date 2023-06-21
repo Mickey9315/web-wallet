@@ -1,21 +1,22 @@
 import { useState } from 'react';
 // mui
-import { Autocomplete, Box, InputAdornment, Stack } from '@mui/material';
+import { Box, InputAdornment, Stack } from '@mui/material';
 // next
+import { useRouter } from 'next/router';
 import Head from 'next/head';
 // components
 import CustomContainer from 'src/components/custom-container/CustomContainer';
 import DashboardLayout from '../../layouts/dashboard';
 
 import { PATH_WALLET } from 'src/routes/paths';
+import { ICON } from 'src/config-global';
 
 import SubHeader from '../../sections/wallet/SubHeader';
 import CustomButton from 'src/components/custom-button/CustomButton';
 import CustomForm from 'src/components/custom-form/CustomForm';
 import Image from 'src/components/image/Image';
-import { ICON } from 'src/config-global';
 import CustomInput from 'src/components/custom-input/CustomInput';
-import CustomAutocomplete, { ValueType } from 'src/components/custom-autocomplete/CustomAutocomplete';
+import CustomAutocomplete from 'src/components/custom-autocomplete/CustomAutocomplete';
 
 // ----------------------------------------------------------------------
 
@@ -24,31 +25,36 @@ ToFriend.getLayout = (page: React.ReactElement) => <DashboardLayout>{page}</Dash
 // ----------------------------------------------------------------------
 
 export default function ToFriend() {
-  const [account, setAccount] = useState<ValueType>({ id: 1, name: 'Adam Chan', icon: '/assets/images/portraits/portrait_6.jpg' });
+  const router = useRouter();
+  const [account, setAccount] = useState(null);
   const [amount, setAmount] = useState('');
 
   const users = [
-    { id: 1, name: 'Adam Chan', icon: '/assets/images/portraits/portrait_6.jpg' },
-    { id: 2, name: 'User 2', icon: '/assets/images/portraits/portrait_6.jpg' },
-    { id: 3, name: 'User 3', icon: '/assets/images/portraits/portrait_6.jpg' },
-    { id: 4, name: 'User 4', icon: '/assets/images/portraits/portrait_6.jpg' },
-    { id: 5, name: 'User 5', icon: '/assets/images/portraits/portrait_6.jpg' },
-    { id: 6, name: 'User 6', icon: '/assets/images/portraits/portrait_6.jpg' },
-    { id: 7, name: 'User 7', icon: '/assets/images/portraits/portrait_6.jpg' },
-    { id: 8, name: 'User 8', icon: '/assets/images/portraits/portrait_6.jpg' },
-    { id: 9, name: 'User 9', icon: '/assets/images/portraits/portrait_6.jpg' },
-    { id: 10, name: 'User 10', icon: '/assets/images/portraits/portrait_6.jpg' },
-    { id: 11, name: 'User 11', icon: '/assets/images/portraits/portrait_6.jpg' },
-    { id: 12, name: 'User 12', icon: '/assets/images/portraits/portrait_6.jpg' },
-    { id: 13, name: 'User 13', icon: '/assets/images/portraits/portrait_6.jpg' },
-    { id: 14, name: 'User 14', icon: '/assets/images/portraits/portrait_6.jpg' },
-    { id: 15, name: 'User 15', icon: '/assets/images/portraits/portrait_6.jpg' },
-    { id: 16, name: 'User 16', icon: '/assets/images/portraits/portrait_6.jpg' },
-    { id: 17, name: 'User 17', icon: '/assets/images/portraits/portrait_6.jpg' },
-    { id: 18, name: 'User 18', icon: '/assets/images/portraits/portrait_6.jpg' },
-    { id: 19, name: 'User 19', icon: '/assets/images/portraits/portrait_6.jpg' },
-    { id: 20, name: 'User 20', icon: '/assets/images/portraits/portrait_6.jpg' },
+    { id: 1, name: 'Adam Chan', avatar: '/assets/images/portraits/portrait_6.jpg' },
+    { id: 2, name: 'User 2', avatar: '/assets/images/portraits/portrait_6.jpg' },
+    { id: 3, name: 'User 3', avatar: '/assets/images/portraits/portrait_6.jpg' },
+    { id: 4, name: 'User 4', avatar: '/assets/images/portraits/portrait_6.jpg' },
+    { id: 5, name: 'User 5', avatar: '/assets/images/portraits/portrait_6.jpg' },
+    { id: 6, name: 'User 6', avatar: '/assets/images/portraits/portrait_6.jpg' },
+    { id: 7, name: 'User 7', avatar: '/assets/images/portraits/portrait_6.jpg' },
+    { id: 8, name: 'User 8', avatar: '/assets/images/portraits/portrait_6.jpg' },
+    { id: 9, name: 'User 9', avatar: '/assets/images/portraits/portrait_6.jpg' },
+    { id: 10, name: 'User 10', avatar: '/assets/images/portraits/portrait_6.jpg' },
+    { id: 11, name: 'User 11', avatar: '/assets/images/portraits/portrait_6.jpg' },
+    { id: 12, name: 'User 12', avatar: '/assets/images/portraits/portrait_6.jpg' },
+    { id: 13, name: 'User 13', avatar: '/assets/images/portraits/portrait_6.jpg' },
+    { id: 14, name: 'User 14', avatar: '/assets/images/portraits/portrait_6.jpg' },
+    { id: 15, name: 'User 15', avatar: '/assets/images/portraits/portrait_6.jpg' },
+    { id: 16, name: 'User 16', avatar: '/assets/images/portraits/portrait_6.jpg' },
+    { id: 17, name: 'User 17', avatar: '/assets/images/portraits/portrait_6.jpg' },
+    { id: 18, name: 'User 18', avatar: '/assets/images/portraits/portrait_6.jpg' },
+    { id: 19, name: 'User 19', avatar: '/assets/images/portraits/portrait_6.jpg' },
+    { id: 20, name: 'User 20', avatar: '/assets/images/portraits/portrait_6.jpg' },
   ];
+
+  const handleConfirm = () => {
+    router.replace(PATH_WALLET.dashboard);
+  };
 
   return (
     <>
@@ -66,7 +72,11 @@ export default function ToFriend() {
               <CustomAutocomplete
                 value={account}
                 onChange={(value: any) => setAccount(value)}
-                options={users}
+                options={users.map((user) => ({
+                  value: user.id,
+                  label: user.name,
+                  icon: user.avatar,
+                }))}
               />
             </CustomForm>
             <CustomForm label="Amount">
@@ -88,7 +98,9 @@ export default function ToFriend() {
               />
             </CustomForm>
           </Stack>
-          <CustomButton disabled={amount === ''}>Confirm</CustomButton>
+          <CustomButton disabled={account !== null && amount === ''} onClick={handleConfirm}>
+            Confirm
+          </CustomButton>
         </Stack>
       </CustomContainer>
     </>

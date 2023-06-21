@@ -1,4 +1,5 @@
 import { styled } from '@mui/material/styles';
+import { MAIN } from 'src/config-global';
 
 export const StyledRoot = styled('main')(() => ({
   height: '100%',
@@ -17,8 +18,8 @@ export const StyledContent = styled('div')(({ theme }) => ({
   overflowY: 'auto',
   backgroundColor: '#FAFAFA',
   [theme.breakpoints.up('md')]: {
-    width: 375,
-    height: 760,
+    width: MAIN.W_DESKTOP,
+    height: MAIN.H_DESKTOP,
     borderRadius: 20,
     minHeight: 'unset',
   },

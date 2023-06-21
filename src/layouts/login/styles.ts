@@ -2,6 +2,7 @@
 import { styled, alpha } from '@mui/material/styles';
 // utils
 import { bgGradient } from '../../utils/cssStyles';
+import { MAIN } from 'src/config-global';
 
 // ----------------------------------------------------------------------
 
@@ -48,8 +49,8 @@ export const StyledContent = styled('div')(({ theme }) => ({
   backgroundColor: theme.palette.common.white,
   padding: '24px 20px',
   [theme.breakpoints.up('md')]: {
-    width: 375,
-    height: 760,
+    width: MAIN.W_DESKTOP,
+    height: MAIN.H_DESKTOP,
     borderRadius: 20,
     padding: '90px 20px',
   },
