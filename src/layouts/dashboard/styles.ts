@@ -1,4 +1,5 @@
 import { styled } from '@mui/material/styles';
+import { MAIN } from 'src/config-global';
 
 export const StyledRoot = styled('main')(() => ({
   height: '100%',
@@ -10,15 +11,15 @@ export const StyledRoot = styled('main')(() => ({
 export const StyledContent = styled('div')(({ theme }) => ({
   width: '100%',
   height: '100%',
+  display: 'flex',
+  justifyContent: 'center',
   minHeight: '100vh',
   margin: 'auto',
-  display: 'flex',
   overflowY: 'auto',
   backgroundColor: '#FAFAFA',
-  justifyContent: 'center',
   [theme.breakpoints.up('md')]: {
-    width: 375,
-    height: 760,
+    width: MAIN.W_DESKTOP,
+    height: MAIN.H_DESKTOP,
     borderRadius: 20,
     minHeight: 'unset',
   },

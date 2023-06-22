@@ -21,7 +21,7 @@ const StyledInput = styled('input')({
 
 type Props = {
   value: string;
-  onChange(value: string): void;
+  onChange: (value: string) => void;
   size?: number;
   validationPattern?: RegExp;
 };

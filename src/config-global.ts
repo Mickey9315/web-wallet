@@ -41,6 +41,11 @@ export const HEADER = {
   H_DASHBOARD_DESKTOP_OFFSET: 92 - 32,
 };
 
+export const MAIN = {
+  W_DESKTOP: 375,
+  H_DESKTOP: 760,
+};
+
 export const NAV = {
   W_BASE: 260,
   W_LARGE: 320,

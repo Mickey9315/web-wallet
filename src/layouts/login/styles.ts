@@ -1,6 +1,7 @@
 // @mui
 import { styled, alpha } from '@mui/material/styles';
 // utils
+import { MAIN } from 'src/config-global';
 import { bgGradient } from '../../utils/cssStyles';
 
 // ----------------------------------------------------------------------
@@ -43,13 +44,13 @@ export const StyledContent = styled('div')(({ theme }) => ({
   height: '100%',
   margin: 'auto',
   display: 'flex',
+  justifyContent: 'center',
   overflowY: 'auto',
   backgroundColor: theme.palette.common.white,
-  justifyContent: 'center',
   padding: '24px 20px',
   [theme.breakpoints.up('md')]: {
-    width: 375,
-    height: 760,
+    width: MAIN.W_DESKTOP,
+    height: MAIN.H_DESKTOP,
     borderRadius: 20,
     padding: '90px 20px',
   },

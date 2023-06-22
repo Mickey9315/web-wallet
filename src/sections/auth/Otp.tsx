@@ -8,7 +8,7 @@ import { PATH_PAGE } from 'src/routes/paths';
 import CustomButton from 'src/components/custom-button/CustomButton';
 import CustomTypography from 'src/components/custom-typography/CustomTypography';
 import LoginLayout from 'src/layouts/login/LoginLayout';
-import OtpInput from './OtpInput';
+import OtpInput from '../../components/otp-input/OtpInput';
 
 export default function Otp() {
   const router = useRouter();
