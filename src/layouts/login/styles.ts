@@ -1,8 +1,8 @@
 // @mui
 import { styled, alpha } from '@mui/material/styles';
 // utils
-import { bgGradient } from '../../utils/cssStyles';
 import { MAIN } from 'src/config-global';
+import { bgGradient } from '../../utils/cssStyles';
 
 // ----------------------------------------------------------------------
 

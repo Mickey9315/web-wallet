@@ -1,26 +1,23 @@
 import { useState } from 'react';
 // mui
-import { Box, CircularProgress, InputAdornment, Stack } from '@mui/material';
+import { Box, Stack } from '@mui/material';
 // next
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 // components
-import CustomContainer from 'src/components/custom-container/CustomContainer';
-import DashboardLayout from '../../layouts/dashboard';
-
 import { PATH_WALLET } from 'src/routes/paths';
 import { ICON } from 'src/config-global';
 
-import SubHeader from '../../sections/wallet/SubHeader';
+import CustomContainer from 'src/components/custom-container/CustomContainer';
 import CustomButton from 'src/components/custom-button/CustomButton';
-import CustomForm from 'src/components/custom-form/CustomForm';
 import Image from 'src/components/image/Image';
-import CustomInput from 'src/components/custom-input/CustomInput';
-import CustomAutocomplete from 'src/components/custom-autocomplete/CustomAutocomplete';
 import OtpInput from 'src/components/otp-input/OtpInput';
 import CustomDialog from 'src/components/custom-dialog/CustomDialog';
 import CustomTypography from 'src/components/custom-typography/CustomTypography';
 import CustomSpinner from 'src/components/custom-spinner/CustomSpinner';
+import SubHeader from '../../sections/wallet/SubHeader';
+
+import DashboardLayout from '../../layouts/dashboard';
 
 // ----------------------------------------------------------------------
 
@@ -29,13 +26,9 @@ Passcode.getLayout = (page: React.ReactElement) => <DashboardLayout>{page}</Dash
 // ----------------------------------------------------------------------
 
 // ----- For test -----
-const deplay = (ms: number) => {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-};
+const deplay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
-const random = (): number => {
-  return Math.floor(Math.random() * 2);
-};
+const random = (): number => Math.floor(Math.random() * 2);
 // ----- For test -----
 
 export default function Passcode() {
@@ -54,11 +47,10 @@ export default function Passcode() {
     setIsProcessing(true);
     // assume that it takes 3000 ms to process action.
     await deplay(2000);
-    const response = random() === 1 ? true : false;
 
     setIsProcessing(false);
 
-    if (response) {
+    if (random() === 1) {
       handleDialog({
         open: true,
         title: 'Submit Successfully',

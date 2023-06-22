@@ -14,22 +14,20 @@ type Props = {
 };
 
 export default function DashboardLayout({ children }: Props) {
-  const renderContent = () => {
-    return (
-      <>
-        <Box
-          sx={{
-            display: { lg: 'flex' },
-            alignItems: 'center',
-            justifyContent: 'center',
-            minHeight: { lg: 1 },
-          }}
-        >
-          <Main>{children}</Main>
-        </Box>
-      </>
-    );
-  };
+  const renderContent = () => (
+    <>
+      <Box
+        sx={{
+          display: { lg: 'flex' },
+          alignItems: 'center',
+          justifyContent: 'center',
+          minHeight: { lg: 1 },
+        }}
+      >
+        <Main>{children}</Main>
+      </Box>
+    </>
+  );
 
   return <AuthGuard> {renderContent()} </AuthGuard>;
 }

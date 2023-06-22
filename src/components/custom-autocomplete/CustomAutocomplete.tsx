@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import { styled } from '@mui/material/styles';
 import {
   Avatar,
@@ -8,10 +10,11 @@ import {
   ListItem,
   Stack,
 } from '@mui/material';
-import { useState } from 'react';
+
+import { ICON, MAIN } from 'src/config-global';
+
 import CustomInput from '../custom-input/CustomInput';
 import Iconify from '../iconify/Iconify';
-import { ICON, MAIN } from 'src/config-global';
 import CustomTypography from '../custom-typography/CustomTypography';
 import { CustomAvatar } from '../custom-avatar';
 import Scrollbar from '../scrollbar/Scrollbar';
@@ -105,7 +108,7 @@ const CustomAutocomplete = ({ value, onChange, options }: Props) => {
         <Box>
           <ClickAwayListener onClickAway={handleClose}>
             <StyledSearchBox>
-              <Box my={2} width="140px" height="5px" borderRadius="100px" bgcolor="#C4C4C4"></Box>
+              <Box my={2} width="140px" height="5px" borderRadius="100px" bgcolor="#C4C4C4" />
               <CustomInput
                 fullWidth
                 placeholder="Select account"

@@ -1,11 +1,11 @@
 // @mui
-import { Box, BoxProps, Stack } from '@mui/material';
-// hooks
-import useResponsive from '../../hooks/useResponsive';
+import { BoxProps, Stack } from '@mui/material';
 // components
+import Scrollbar from 'src/components/scrollbar/Scrollbar';
 import { useSettingsContext } from '../../components/settings';
 import { StyledContent, StyledRoot } from './styles';
-import Scrollbar from 'src/components/scrollbar/Scrollbar';
+// hooks
+import useResponsive from '../../hooks/useResponsive';
 
 // ----------------------------------------------------------------------
 

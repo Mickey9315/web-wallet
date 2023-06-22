@@ -1,5 +1,4 @@
 import Image from '../image/Image';
-import { Stack } from '@mui/material';
 
 type Props = {
   size: number;

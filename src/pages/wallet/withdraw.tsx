@@ -5,21 +5,20 @@ import { Box, InputAdornment, Stack } from '@mui/material';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 // components
-import CustomContainer from 'src/components/custom-container/CustomContainer';
-import DashboardLayout from '../../layouts/dashboard';
-
 import { PATH_WALLET } from 'src/routes/paths';
 import { ICON } from 'src/config-global';
 
-import SubHeader from '../../sections/wallet/SubHeader';
+import CustomContainer from 'src/components/custom-container/CustomContainer';
 import CustomButton from 'src/components/custom-button/CustomButton';
 import CustomForm from 'src/components/custom-form/CustomForm';
 import Image from 'src/components/image/Image';
 import CustomInput from 'src/components/custom-input/CustomInput';
 import Iconify from 'src/components/iconify/Iconify';
-import CustomLink from 'src/components/custom-link/CustomLink';
 import CustomDialog from 'src/components/custom-dialog/CustomDialog';
 import CustomTypography from 'src/components/custom-typography/CustomTypography';
+import SubHeader from '../../sections/wallet/SubHeader';
+
+import DashboardLayout from '../../layouts/dashboard';
 
 // ----------------------------------------------------------------------
 
@@ -32,11 +31,6 @@ export default function Withdraw() {
   const [toAddress, setToAddress] = useState('');
   const [amount, setAmount] = useState('');
   const [openDepositConfirm, setOpenDepositConfirm] = useState(false);
-
-  const handleMaxAmount = () => {
-    const max = '2422';
-    setAmount(max);
-  };
 
   const handleConfirm = () => {
     setOpenDepositConfirm(true);

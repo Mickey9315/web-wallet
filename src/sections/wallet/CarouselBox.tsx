@@ -1,16 +1,22 @@
 import { useRef, useState } from 'react';
 // @mui
 import { Box, Stack } from '@mui/material';
+// next
+import dynamic from 'next/dynamic';
 // components
+import { PATH_WALLET } from 'src/routes/paths';
+import { ICON } from 'src/config-global';
+
 import Carousel, { CarouselDots } from 'src/components/carousel';
 import CustomTypography from 'src/components/custom-typography/CustomTypography';
 import Image from 'src/components/image/Image';
-import { ICON } from 'src/config-global';
 import Iconify from 'src/components/iconify/Iconify';
 import CustomLink from 'src/components/custom-link/CustomLink';
 import AddressBox from 'src/components/address-box/AddressBox';
-import { PATH_WALLET } from 'src/routes/paths';
-import DepositDrawer from './DepositDrawer';
+
+const DepositDrawer = dynamic(() => import('./DepositDrawer'), {
+  ssr: false,
+});
 
 // ----------------------------------------------------------------------
 

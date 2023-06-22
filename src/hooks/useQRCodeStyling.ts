@@ -1,11 +1,23 @@
-import QRCodeStyling, { Options as QRCodeStylingOptions, FileExtension } from 'qr-code-styling';
+import QRCodeStyling, { Options as QRCodeStylingOptions } from 'qr-code-styling';
 
-export default function useQRCodeStyling(options: QRCodeStylingOptions): QRCodeStyling | null {
-  //Only do this on the client
+const qrOptions: QRCodeStylingOptions = {
+  width: 288,
+  height: 288,
+  margin: 0,
+  dotsOptions: {
+    color: 'black',
+    type: 'square',
+  },
+  backgroundOptions: { color: '#ffffff' },
+  cornersSquareOptions: { type: 'extra-rounded', color: '#000000' },
+  cornersDotOptions: { type: 'dot', color: '#000000' },
+  qrOptions: { typeNumber: 0, mode: 'Byte', errorCorrectionLevel: 'H' },
+};
+
+export default function useQRCodeStyling(): QRCodeStyling | null {
+  // Only do this on the client
   if (typeof window !== 'undefined') {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const QRCodeStylingLib = require('qr-code-styling');
-    const qrCodeStyling: QRCodeStyling = new QRCodeStylingLib(options);
+    const qrCodeStyling: QRCodeStyling = new QRCodeStyling(qrOptions);
     return qrCodeStyling;
   }
   return null;

@@ -26,20 +26,6 @@ const StyledBox = styled(Stack)({
   padding: '12px 20px 24px 20px',
 });
 
-const qrOptions: QRCodeStylingOptions = {
-  width: 288,
-  height: 288,
-  margin: 0,
-  dotsOptions: {
-    color: 'black',
-    type: 'square',
-  },
-  backgroundOptions: { color: '#ffffff' },
-  cornersSquareOptions: { type: 'extra-rounded', color: '#000000' },
-  cornersDotOptions: { type: 'dot', color: '#000000' },
-  qrOptions: { typeNumber: 0, mode: 'Byte', errorCorrectionLevel: 'H' },
-};
-
 type Props = {
   open: boolean;
   onClose?: () => void;
@@ -47,7 +33,7 @@ type Props = {
 
 const DepositDrawer = ({ open, onClose = () => {}, ...other }: Props) => {
   const address = '1234567890123456789012345678901234567890';
-  const qrCode = useQRCodeStyling(qrOptions);
+  const qrCode = useQRCodeStyling();
   const ref = useRef<any>(null);
   const [btnText, setBtnText] = useState('Copy Address');
 
@@ -70,7 +56,7 @@ const DepositDrawer = ({ open, onClose = () => {}, ...other }: Props) => {
       <Slide direction="up" in={open} style={{ display: open ? 'block' : 'none' }}>
         <StyledBox {...other} onClick={(e) => e.stopPropagation()}>
           <Stack width={1} borderBottom="4px solid #FAFAFA" alignItems="center">
-            <Box width="140px" height="5px" borderRadius="100px" bgcolor="#C4C4C4"></Box>
+            <Box width="140px" height="5px" borderRadius="100px" bgcolor="#C4C4C4" />
             <Box my={3}>
               <CustomTypography size="xl">Deposit</CustomTypography>
             </Box>
@@ -85,7 +71,7 @@ const DepositDrawer = ({ open, onClose = () => {}, ...other }: Props) => {
               <AddressBox address={address} />
             </Box>
             <Box my={3} p={1}>
-              <Box ref={ref}></Box>
+              <Box ref={ref} />
             </Box>
             <CustomButton onClick={copyAddress}>{btnText}</CustomButton>
           </Stack>
