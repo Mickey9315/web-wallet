@@ -20,7 +20,10 @@ const ROOTS_WALLET = '/wallet';
 export const PATH_WALLET = {
   root: ROOTS_WALLET,
   dashboard: path(ROOTS_WALLET, '/dashboard'),
+  depositWISDOM: path(ROOTS_WALLET, '/deposit-wisdom'),
+  toWIS: path(ROOTS_WALLET, '/to-wis'),
   toFriend: path(ROOTS_WALLET, '/to-friend'),
-  deposit: path(ROOTS_WALLET, '/deposit'),
+  toWISDOM: path(ROOTS_WALLET, '/to-wisdom'),
+  withdraw: path(ROOTS_WALLET, '/withdraw'),
   passcode: path(ROOTS_WALLET, '/passcode'),
 };

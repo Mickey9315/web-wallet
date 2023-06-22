@@ -28,6 +28,16 @@ Passcode.getLayout = (page: React.ReactElement) => <DashboardLayout>{page}</Dash
 
 // ----------------------------------------------------------------------
 
+// ----- For test -----
+const deplay = (ms: number) => {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+};
+
+const random = (): number => {
+  return Math.floor(Math.random() * 2);
+};
+// ----- For test -----
+
 export default function Passcode() {
   const router = useRouter();
   const [passcode, setPasscode] = useState('');
@@ -40,20 +50,15 @@ export default function Passcode() {
     message: '',
   });
 
-  const deplay = (ms: number) => {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-  };
-
   const handleConfirm = async () => {
     setIsProcessing(true);
     // assume that it takes 3000 ms to process action.
     await deplay(2000);
-    const response = false;
+    const response = random() === 1 ? true : false;
 
     setIsProcessing(false);
 
     if (response) {
-      console.log('JERE');
       handleDialog({
         open: true,
         title: 'Submit Successfully',
@@ -61,7 +66,6 @@ export default function Passcode() {
         message: '[message]',
       });
     } else {
-      console.log('asdf');
       handleDialog({
         open: true,
         title: 'Please Try Again',
@@ -90,7 +94,7 @@ export default function Passcode() {
   return (
     <>
       <Head>
-        <title> Newwit - Wallet - Passcode</title>
+        <title> Newwit - Wallet Passcode</title>
       </Head>
 
       <CustomContainer bgcolor="white">

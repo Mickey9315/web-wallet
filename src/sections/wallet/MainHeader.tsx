@@ -1,9 +1,11 @@
 import { Stack } from '@mui/material';
 import { CustomAvatar } from 'src/components/custom-avatar';
+import CustomLink from 'src/components/custom-link/CustomLink';
 import CustomTypography from 'src/components/custom-typography/CustomTypography';
 import Iconify from 'src/components/iconify/Iconify';
 import Image from 'src/components/image/Image';
 import { ICON } from 'src/config-global';
+import { PATH_AUTH } from 'src/routes/paths';
 
 export default function MainHeader() {
   return (
@@ -36,10 +38,12 @@ export default function MainHeader() {
           src="/assets/images/portraits/portrait_6.jpg"
           sx={{ width: ICON.SIZE.sm, height: ICON.SIZE.sm }}
         />
-        <Iconify
-          icon="ic:baseline-logout"
-          sx={{ width: ICON.SIZE.sm, height: ICON.SIZE.sm, color: '#A180FF' }}
-        />
+        <CustomLink href={PATH_AUTH.login}>
+          <Iconify
+            icon="ic:baseline-logout"
+            sx={{ width: ICON.SIZE.sm, height: ICON.SIZE.sm, color: '#A180FF' }}
+          />
+        </CustomLink>
       </Stack>
     </Stack>
   );

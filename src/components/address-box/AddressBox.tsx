@@ -5,12 +5,14 @@ const StyledRoot = styled(Box)({
   background: 'linear-gradient(to right, #4423FF, #07EED6)',
   padding: '1px',
   borderRadius: '100px',
+  width: 'fit-content',
 });
 
 const StyledContent = styled(Box)({
   background: 'white',
   padding: '10px',
   borderRadius: '100px',
+  width: 'fit-content',
 });
 
 const StyledAddress = styled(Typography)({

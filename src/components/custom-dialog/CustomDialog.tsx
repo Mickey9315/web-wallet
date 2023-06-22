@@ -5,6 +5,7 @@ import Iconify from '../iconify/Iconify';
 const StyledBackdrop = styled(Backdrop)({
   position: 'absolute',
   backgroundColor: 'rgba(0,0,0,0.75)',
+  zIndex: 1000,
 });
 
 const StyledBox = styled(Stack)({
@@ -15,6 +16,7 @@ const StyledBox = styled(Stack)({
   left: '20px',
   right: '20px',
   transform: 'translateY(-50%)',
+  zIndex: 2000,
 });
 
 type Props = {
@@ -33,7 +35,7 @@ const CustomDialog = ({ open, onClose = () => {}, children, ...other }: Props) =
               icon="system-uicons:cross"
               width={25}
               height={25}
-              sx={{ position: 'absolute', top: 32, right: 24 }}
+              sx={{ position: 'absolute', top: 32, right: 24, '&:hover': { cursor: 'pointer' } }}
               onClick={() => onClose()}
             />
           </Box>
