@@ -124,7 +124,7 @@ export default function CarouselBox() {
                   <CustomTypography size="xs">To WISDOM</CustomTypography>
                 </Stack>
               </CustomLink>
-              <CustomLink href={PATH_WALLET.dashboard}>
+              <CustomLink href={PATH_WALLET.toExternal}>
                 <Stack spacing={1} alignItems="center">
                   <Image
                     src="/assets/icons/wallets/ic_matic_40_grey.svg"

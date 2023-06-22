@@ -17,24 +17,23 @@ import CustomForm from 'src/components/custom-form/CustomForm';
 import Image from 'src/components/image/Image';
 import CustomInput from 'src/components/custom-input/CustomInput';
 import Iconify from 'src/components/iconify/Iconify';
-import CustomLink from 'src/components/custom-link/CustomLink';
 import CustomDialog from 'src/components/custom-dialog/CustomDialog';
 import CustomTypography from 'src/components/custom-typography/CustomTypography';
 
 // ----------------------------------------------------------------------
 
-Withdraw.getLayout = (page: React.ReactElement) => <DashboardLayout>{page}</DashboardLayout>;
+ToExternal.getLayout = (page: React.ReactElement) => <DashboardLayout>{page}</DashboardLayout>;
 
 // ----------------------------------------------------------------------
 
-export default function Withdraw() {
+export default function ToExternal() {
   const router = useRouter();
   const [toAddress, setToAddress] = useState('');
   const [amount, setAmount] = useState('');
   const [openDepositConfirm, setOpenDepositConfirm] = useState(false);
 
+  const max = '2422';
   const handleMaxAmount = () => {
-    const max = '2422';
     setAmount(max);
   };
 
@@ -53,18 +52,18 @@ export default function Withdraw() {
   return (
     <>
       <Head>
-        <title> Newwit - Wallet - Withdraw</title>
+        <title> Newwit - To External </title>
       </Head>
 
       <CustomContainer bgcolor="transparent">
         <Box>
-          <SubHeader title="Withdraw" back={PATH_WALLET.dashboard} />
+          <SubHeader title="To External" back={PATH_WALLET.dashboard} />
         </Box>
         <Stack mt={3} justifyContent="space-between" height={1}>
           <Stack spacing={3.75}>
             <Stack alignItems="center">
               <Image
-                src="/assets/icons/wallets/ic_matic_50.svg"
+                src="/assets/icons/wallets/ic_wis_50.svg"
                 sx={{ width: ICON.SIZE.xl, height: ICON.SIZE.xl }}
               />
             </Stack>
@@ -99,23 +98,58 @@ export default function Withdraw() {
                   onChange={(e) => setAmount(e.target.value)}
                   helperText="Balance: [xx] WIS"
                   InputProps={{
+                    sx: { color: Number(amount) > Number(max) ? '#FF401A' : 'black' },
                     startAdornment: (
                       <InputAdornment position="start">
                         <Image
-                          src="/assets/icons/wallets/ic_matic_20.svg"
+                          src="/assets/icons/wallets/ic_wis_20.svg"
                           sx={{ width: ICON.SIZE.sm, height: ICON.SIZE.sm }}
                         />
+                      </InputAdornment>
+                    ),
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <CustomButton bstyle="text" onClick={handleMaxAmount}>
+                          MAX
+                        </CustomButton>
                       </InputAdornment>
                     ),
                   }}
                 />
               </CustomForm>
+              <Box bgcolor="#DEFFFB" px={6} py={1.25} textAlign="center">
+                <CustomTypography size="sm">
+                  Your WIS will be transferred from Newwit wallet to Matic wallet.
+                </CustomTypography>
+              </Box>
             </Stack>
+            {Number(amount) > Number(max) && (
+              <Stack
+                mx="-20px !important"
+                bgcolor="#FF401A"
+                px={2.5}
+                py={1.5}
+                spacing={1.5}
+                direction="row"
+                alignItems="center"
+              >
+                <Iconify
+                  icon="ci:warning"
+                  width={ICON.SIZE.sm}
+                  height={ICON.SIZE.sm}
+                  color="white"
+                />
+                <CustomTypography sx={{ fontSize: '14px', lineHeight: '19px', color: 'white' }}>
+                  Not enough
+                </CustomTypography>
+              </Stack>
+            )}
           </Stack>
           <CustomButton
             bstyle="gradient"
             disabled={toAddress === '' || amount === ''}
             onClick={handleConfirm}
+            sx={{ mt: 1 }}
           >
             Confirm
           </CustomButton>
@@ -129,19 +163,21 @@ export default function Withdraw() {
             <Stack direction="row" justifyContent="space-between" alignItems="center">
               <CustomTypography size="md">Withdrawal Amount</CustomTypography>
               <Stack direction="row" spacing={0.75}>
+                <Image
+                  src="/assets/icons/wallets/ic_wis_20.svg"
+                  sx={{ width: ICON.SIZE.sm, height: ICON.SIZE.sm }}
+                />
                 <CustomTypography size="md">0.60</CustomTypography>
               </Stack>
             </Stack>
             <Stack direction="row" justifyContent="space-between" alignItems="center">
               <CustomTypography size="md">Gas Fee</CustomTypography>
               <Stack direction="row" spacing={0.75} alignItems="center">
+                <Image
+                  src="/assets/icons/wallets/ic_matic_20.svg"
+                  sx={{ width: ICON.SIZE.sm, height: ICON.SIZE.sm }}
+                />
                 <CustomTypography size="md">XXXX</CustomTypography>
-              </Stack>
-            </Stack>
-            <Stack direction="row" justifyContent="space-between" alignItems="center">
-              <CustomTypography size="md">Total</CustomTypography>
-              <Stack direction="row" spacing={0.75} alignItems="center">
-                <CustomTypography size="xl">105.94</CustomTypography>
               </Stack>
             </Stack>
           </Stack>

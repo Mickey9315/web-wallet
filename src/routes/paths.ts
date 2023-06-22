@@ -24,6 +24,7 @@ export const PATH_WALLET = {
   toWIS: path(ROOTS_WALLET, '/to-wis'),
   toFriend: path(ROOTS_WALLET, '/to-friend'),
   toWISDOM: path(ROOTS_WALLET, '/to-wisdom'),
+  toExternal: path(ROOTS_WALLET, '/to-external'),
   withdraw: path(ROOTS_WALLET, '/withdraw'),
   passcode: path(ROOTS_WALLET, '/passcode'),
 };
