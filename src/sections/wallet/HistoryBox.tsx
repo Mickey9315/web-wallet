@@ -1,11 +1,16 @@
 import { Box, Button, Divider, Stack } from '@mui/material';
+
+import NextLink from 'next/link';
+
 import CustomTypography from 'src/components/custom-typography/CustomTypography';
 import Image from 'src/components/image/Image';
 import { FONT, ICON } from 'src/config-global';
+import { PATH_WALLET } from 'src/routes/paths';
 
 export default function HistoryBox() {
   const items = [
     {
+      date: '2023-06-01',
       icon: '/assets/icons/wallets/ic_expert.svg',
       title: 'Domain Expert Reward',
       detail: '[Details]',
@@ -19,6 +24,7 @@ export default function HistoryBox() {
       status: '[Pending]',
     },
     {
+      date: '2023-06-01',
       icon: '/assets/icons/wallets/ic_attack.svg',
       title: 'Purchased Attacks',
       detail: 'code',
@@ -48,7 +54,11 @@ export default function HistoryBox() {
         justifyContent="space-between"
       >
         <CustomTypography size="sm">You have earned xxx WISDOM this month.</CustomTypography>
-        <Button sx={{ bgcolor: '#02EED6', borderRadius: '3px', color: 'black', ...FONT.sm }}>
+        <Button
+          component={NextLink}
+          href={PATH_WALLET.earnWIS}
+          sx={{ bgcolor: '#02EED6', borderRadius: '3px', color: 'black', ...FONT.sm }}
+        >
           Earn More
         </Button>
       </Stack>
@@ -83,7 +93,7 @@ function HistoryItem({ icon, title, detail, value, status }: HistoryItemProps) {
           </CustomTypography>
         </Stack>
         <Stack alignItems="flex-end" spacing={1} flex={1}>
-          <CustomTypography size="lg" color="black">
+          <CustomTypography size="lg" color={status === 'Not claimbed yet' ? '#828282' : 'black'}>
             {value}
           </CustomTypography>
           {status && (
