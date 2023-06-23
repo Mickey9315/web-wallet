@@ -1,13 +1,17 @@
-import { useEffect, useRef, useState } from 'react';
-import { Options as QRCodeStylingOptions } from 'qr-code-styling';
+import { useState } from 'react';
 
 import { styled } from '@mui/material/styles';
 import { Backdrop, Box, Slide, Stack, StackProps } from '@mui/material';
 
+import dynamic from 'next/dynamic';
+
 import AddressBox from 'src/components/address-box/AddressBox';
 import CustomTypography from 'src/components/custom-typography/CustomTypography';
-import useQRCodeStyling from 'src/hooks/useQRCodeStyling';
 import CustomButton from 'src/components/custom-button/CustomButton';
+
+const QrCode = dynamic(() => import('src/components/qr-code/QrCode'), {
+  ssr: false,
+});
 
 const StyledBackdrop = styled(Backdrop)({
   position: 'absolute',
@@ -33,17 +37,7 @@ type Props = {
 
 const DepositDrawer = ({ open, onClose = () => {}, ...other }: Props) => {
   const address = '1234567890123456789012345678901234567890';
-  const qrCode = useQRCodeStyling();
-  const ref = useRef<any>(null);
   const [btnText, setBtnText] = useState('Copy Address');
-
-  useEffect(() => {
-    qrCode?.append(ref.current);
-  }, [ref, qrCode]);
-
-  useEffect(() => {
-    qrCode?.update({ data: address });
-  }, [address, qrCode]);
 
   const copyAddress = () => {
     navigator.clipboard.writeText(address);
@@ -70,8 +64,8 @@ const DepositDrawer = ({ open, onClose = () => {}, ...other }: Props) => {
             <Box mt={1}>
               <AddressBox address={address} />
             </Box>
-            <Box my={3} p={1}>
-              <Box ref={ref} />
+            <Box my={3}>
+              <QrCode data={address} />
             </Box>
             <CustomButton onClick={copyAddress}>{btnText}</CustomButton>
           </Stack>

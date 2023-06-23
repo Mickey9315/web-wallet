@@ -1,8 +1,6 @@
 import { useRef, useState } from 'react';
 // @mui
 import { Box, Stack } from '@mui/material';
-// next
-import dynamic from 'next/dynamic';
 // components
 import { PATH_WALLET } from 'src/routes/paths';
 import { ICON } from 'src/config-global';
@@ -13,10 +11,7 @@ import Image from 'src/components/image/Image';
 import Iconify from 'src/components/iconify/Iconify';
 import CustomLink from 'src/components/custom-link/CustomLink';
 import AddressBox from 'src/components/address-box/AddressBox';
-
-const DepositDrawer = dynamic(() => import('./DepositDrawer'), {
-  ssr: false,
-});
+import DepositDrawer from './DepositDrawer';
 
 // ----------------------------------------------------------------------
 
