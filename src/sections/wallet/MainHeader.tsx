@@ -1,13 +1,16 @@
 import { Stack } from '@mui/material';
+import ConnectButton from 'src/components/connect-button/ConnectButton';
 import { CustomAvatar } from 'src/components/custom-avatar';
 import CustomLink from 'src/components/custom-link/CustomLink';
 import CustomTypography from 'src/components/custom-typography/CustomTypography';
 import Iconify from 'src/components/iconify/Iconify';
 import Image from 'src/components/image/Image';
 import { ICON } from 'src/config-global';
+import useResponsive from 'src/hooks/useResponsive';
 import { PATH_AUTH } from 'src/routes/paths';
 
 export default function MainHeader() {
+  const isDesktop = useResponsive('up', 'md');
   return (
     <Stack direction="row" justifyContent="space-between" py={1.5} alignItems="center">
       <Stack direction="row" spacing={2} alignItems="center">
@@ -44,6 +47,7 @@ export default function MainHeader() {
             sx={{ width: ICON.SIZE.sm, height: ICON.SIZE.sm, color: '#A180FF' }}
           />
         </CustomLink>
+        {!isDesktop && <ConnectButton />}
       </Stack>
     </Stack>
   );
