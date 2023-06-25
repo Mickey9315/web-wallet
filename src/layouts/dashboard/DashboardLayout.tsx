@@ -1,8 +1,10 @@
 // @mui
 import { Box } from '@mui/material';
+// components
+import useResponsive from 'src/hooks/useResponsive';
+import ConnectButton from 'src/components/connect-button/ConnectButton';
 // auth
 import AuthGuard from '../../auth/AuthGuard';
-// components
 import { useSettingsContext } from '../../components/settings';
 //
 import Main from './Main';
@@ -14,6 +16,7 @@ type Props = {
 };
 
 export default function DashboardLayout({ children }: Props) {
+  const isDesktop = useResponsive('up', 'md');
   const renderContent = () => (
     <>
       <Box
@@ -25,6 +28,7 @@ export default function DashboardLayout({ children }: Props) {
         }}
       >
         <Main>{children}</Main>
+        {isDesktop && <ConnectButton sx={{ position: 'absolute', top: 10, right: 20 }} />}
       </Box>
     </>
   );
