@@ -4,11 +4,43 @@ import NextLink from 'next/link';
 
 import CustomTypography from 'src/components/custom-typography/CustomTypography';
 import Image from 'src/components/image/Image';
-import { FONT, ICON } from 'src/config-global';
+import Scrollbar from 'src/components/scrollbar/Scrollbar';
+import { FONT, ICON, MAIN } from 'src/config-global';
+import useResponsive from 'src/hooks/useResponsive';
 import { PATH_WALLET } from 'src/routes/paths';
 
 export default function HistoryBox() {
+  const isDesktop = useResponsive('up', 'md');
   const items = [
+    {
+      date: '2023-06-01',
+      icon: '/assets/icons/wallets/ic_expert.svg',
+      title: 'Domain Expert Reward',
+      detail: '[Details]',
+      value: '+Xx.00',
+    },
+    {
+      icon: '/assets/icons/wallets/ic_withdraw.svg',
+      title: 'Withdraw',
+      detail: 'code',
+      value: '-100.00',
+      status: '[Pending]',
+    },
+    {
+      date: '2023-06-01',
+      icon: '/assets/icons/wallets/ic_attack.svg',
+      title: 'Purchased Attacks',
+      detail: 'code',
+      value: '-100.00',
+      status: '[Pending]',
+    },
+    {
+      icon: '/assets/icons/wallets/ic_leaderboard.svg',
+      title: 'From leaderboard',
+      detail: '[Details]',
+      value: '+50.00',
+      status: 'Not claimbed yet',
+    },
     {
       date: '2023-06-01',
       icon: '/assets/icons/wallets/ic_expert.svg',
@@ -41,7 +73,7 @@ export default function HistoryBox() {
   ];
 
   return (
-    <Box>
+    <Stack>
       <CustomTypography size="xl">History</CustomTypography>
       <Stack
         direction="row"
@@ -62,12 +94,26 @@ export default function HistoryBox() {
           Earn More
         </Button>
       </Stack>
-      <Stack mt={1.5} divider={<Divider sx={{ borderColor: '#E0E0E0', my: 1 }} flexItem />}>
-        {items.map((item, idx) => (
-          <HistoryItem key={idx} {...item} />
-        ))}
-      </Stack>
-    </Box>
+      {isDesktop ? (
+        <Scrollbar sx={{ height: MAIN.H_DESKTOP - 451 }}>
+          <Stack mt={1.5} divider={<Divider sx={{ borderColor: '#E0E0E0', my: 1 }} flexItem />}>
+            {items.map((item, idx) => (
+              <HistoryItem key={idx} {...item} />
+            ))}
+          </Stack>
+        </Scrollbar>
+      ) : (
+        <Stack
+          mt={1.5}
+          sx={{ overflowY: 'auto', height: 'calc(100vh - 451px)' }}
+          divider={<Divider sx={{ borderColor: '#E0E0E0', my: 1 }} flexItem />}
+        >
+          {items.map((item, idx) => (
+            <HistoryItem key={idx} {...item} />
+          ))}
+        </Stack>
+      )}
+    </Stack>
   );
 }
 

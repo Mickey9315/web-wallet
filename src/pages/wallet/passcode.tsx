@@ -93,7 +93,7 @@ export default function Passcode() {
         <Box>
           <SubHeader title="Enter Wallet Passcode" back={PATH_WALLET.dashboard} />
         </Box>
-        <Stack mt={1} spacing={6}>
+        <Stack mt={4} spacing={6}>
           <OtpInput size={6} value={passcode} onChange={(val) => setPasscode(val)} />
           <CustomButton disabled={passcode.length !== 6} onClick={handleConfirm}>
             Confirm

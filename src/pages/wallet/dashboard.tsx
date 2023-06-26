@@ -1,5 +1,5 @@
 // mui
-import { Box } from '@mui/material';
+import { Box, Stack } from '@mui/material';
 // next
 import Head from 'next/head';
 // components
@@ -30,9 +30,9 @@ export default function Dashboard() {
         <Box mt={2.5}>
           <CarouselBox />
         </Box>
-        <Box mt={2.5}>
+        <Stack mt={2.5}>
           <HistoryBox />
-        </Box>
+        </Stack>
       </CustomContainer>
     </>
   );
