@@ -28,7 +28,7 @@ export default function DashboardLayout({ children }: Props) {
         }}
       >
         <Main>{children}</Main>
-        {isDesktop && <ConnectButton sx={{ position: 'absolute', top: 10, right: 20 }} />}
+        {/* {isDesktop && <ConnectButton sx={{ position: 'absolute', top: 10, right: 20 }} />} */}
       </Box>
     </>
   );
