@@ -17,21 +17,7 @@ type Props = {
 
 export default function DashboardLayout({ children }: Props) {
   const isDesktop = useResponsive('up', 'md');
-  const renderContent = () => (
-    <>
-      <Box
-        sx={{
-          display: { lg: 'flex' },
-          alignItems: 'center',
-          justifyContent: 'center',
-          minHeight: { lg: 1 },
-        }}
-      >
-        <Main>{children}</Main>
-        {/* {isDesktop && <ConnectButton sx={{ position: 'absolute', top: 10, right: 20 }} />} */}
-      </Box>
-    </>
-  );
+  const renderContent = () => <Main>{children}</Main>;
 
   return <AuthGuard> {renderContent()} </AuthGuard>;
 }
