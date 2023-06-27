@@ -47,7 +47,7 @@ export default function MainHeader() {
             sx={{ width: ICON.SIZE.sm, height: ICON.SIZE.sm, color: '#A180FF' }}
           />
         </CustomLink>
-        {!isDesktop && <ConnectButton />}
+        {/* {!isDesktop && <ConnectButton />} */}
       </Stack>
     </Stack>
   );
