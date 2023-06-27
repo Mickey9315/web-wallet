@@ -3815,6 +3815,11 @@ queue-microtask@^1.2.2:
   resolved "https://registry.npmjs.org/queue-microtask/-/queue-microtask-1.2.3.tgz"
   integrity sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==
 
+react-circle-flags@^0.0.18:
+  version "0.0.18"
+  resolved "https://registry.yarnpkg.com/react-circle-flags/-/react-circle-flags-0.0.18.tgz#ab48b410435dd2bb4419cda6f59b4378019fbbec"
+  integrity sha512-3taT04bifZ2oSARDfoO4bMDfdIDfAxW6MeOaJ6fR17OcEn+/dGivE/nrtUYwfGKFp9/Sq92yo4FTT2I+DqAIqA==
+
 react-dom@^18.2.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz"
@@ -3835,6 +3840,11 @@ react-i18next@^12.1.5:
   dependencies:
     "@babel/runtime" "^7.20.6"
     html-parse-stringify "^3.0.1"
+
+react-international-phone@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/react-international-phone/-/react-international-phone-2.2.2.tgz#5fee69da21490426fcc1777b60d1bb777b995a22"
+  integrity sha512-geH3exdxFeDzPKM1EqVPUCkKVp+pNkbYoBhQsqQL5vM++2fMb+0AD4k5IfB+I0p1dSz0Ugg7NY2RQzGXlUUiTw==
 
 react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"
