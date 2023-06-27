@@ -4,16 +4,14 @@ import { useRouter } from 'next/router';
 import { Stack, Box } from '@mui/material';
 
 // components
-import { FONT } from 'src/config-global';
 import { PATH_AUTH } from 'src/routes/paths';
 
-import Image from 'src/components/image/Image';
 import CustomButton from 'src/components/custom-button/CustomButton';
 import CustomTypography from 'src/components/custom-typography/CustomTypography';
+import PhoneInput from 'src/components/phone-input/PhoneInput';
 
 // layouts
 import LoginLayout from '../../layouts/login';
-import PhoneInput from 'src/components/phone-input/PhoneInput';
 
 // ----------------------------------------------------------------------
 

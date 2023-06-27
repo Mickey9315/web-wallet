@@ -7,8 +7,8 @@ import {
 } from 'react-international-phone';
 import { CircleFlag } from 'react-circle-flags';
 
-import CustomTypography from '../custom-typography/CustomTypography';
 import { FONT } from 'src/config-global';
+import CustomTypography from '../custom-typography/CustomTypography';
 
 type Props = {
   value: string;
@@ -18,9 +18,8 @@ type Props = {
 const countries = defaultCountries.map((item) => parseCountry(item));
 
 const PhoneInput = ({ value, onChange }: Props) => {
-  const getCountryFromCode = (countryCode: string) => {
-    return countries.find((item) => item.iso2 === countryCode)?.dialCode;
-  };
+  const getCountryFromCode = (countryCode: string) =>
+    countries.find((item) => item.iso2 === countryCode)?.dialCode;
   const { phone, handlePhoneValueChange, inputRef, country, setCountry } = usePhoneInput({
     defaultCountry: 'us',
     value,
@@ -50,7 +49,7 @@ const PhoneInput = ({ value, onChange }: Props) => {
           '.MuiOutlinedInput-notchedOutline': { border: '0 !important' },
           '.MuiSvgIcon-root': { right: 0, color: 'black' },
         }}
-        renderValue={(value) => <CircleFlag countryCode={value} height="33" />}
+        renderValue={(code) => <CircleFlag countryCode={code} height="33" />}
         MenuProps={{
           sx: { height: 300, transform: 'translate(-42px, 15px)' },
           transformOrigin: {
@@ -60,14 +59,14 @@ const PhoneInput = ({ value, onChange }: Props) => {
         }}
       >
         {defaultCountries.map((c, idx) => {
-          const country = parseCountry(c);
+          const countryInfo = parseCountry(c);
           return (
-            <MenuItem value={country.iso2} key={idx}>
+            <MenuItem value={countryInfo.iso2} key={idx}>
               <Stack direction="row" alignItems="center" spacing={1}>
-                <CircleFlag countryCode={country.iso2} height="33" />
-                <CustomTypography size="sm">{country.name}</CustomTypography>
+                <CircleFlag countryCode={countryInfo.iso2} height="33" />
+                <CustomTypography size="sm">{countryInfo.name}</CustomTypography>
                 <CustomTypography size="sm" color="gray">
-                  +{country.dialCode}
+                  +{countryInfo.dialCode}
                 </CustomTypography>
               </Stack>
             </MenuItem>
