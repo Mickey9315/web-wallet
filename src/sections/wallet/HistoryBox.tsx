@@ -105,7 +105,7 @@ export default function HistoryBox() {
       ) : (
         <Stack
           mt={1.5}
-          sx={{ overflowY: 'auto', height: 'calc(100vh - 451px)' }}
+          sx={{ overflowY: 'auto', height: 'calc(100dvh - 451px)' }}
           divider={<Divider sx={{ borderColor: '#E0E0E0', my: 1 }} flexItem />}
         >
           {items.map((item, idx) => (

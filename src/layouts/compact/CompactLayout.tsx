@@ -28,7 +28,7 @@ export default function CompactLayout({ children }: Props) {
             py: 12,
             m: 'auto',
             maxWidth: 400,
-            minHeight: '100vh',
+            minHeight: '100dvh',
             textAlign: 'center',
             justifyContent: 'center',
           }}

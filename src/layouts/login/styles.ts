@@ -10,7 +10,7 @@ export const StyledRoot = styled('main')(() => ({
   height: '100%',
   display: 'flex',
   position: 'relative',
-  minHeight: '100vh',
+  minHeight: '100dvh',
 }));
 
 export const StyledSection = styled('div')(({ theme }) => ({
