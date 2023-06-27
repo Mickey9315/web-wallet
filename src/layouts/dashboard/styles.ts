@@ -5,7 +5,7 @@ export const StyledRoot = styled('main')(() => ({
   height: '100%',
   display: 'flex',
   position: 'relative',
-  minHeight: '100vh',
+  minHeight: '100dvh',
 }));
 
 export const StyledContent = styled('div')(({ theme }) => ({
@@ -13,7 +13,6 @@ export const StyledContent = styled('div')(({ theme }) => ({
   height: '100%',
   display: 'flex',
   justifyContent: 'center',
-  minHeight: '100vh',
   margin: 'auto',
   overflowY: 'auto',
   backgroundColor: '#FAFAFA',
