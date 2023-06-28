@@ -5,6 +5,7 @@ import {
   Avatar,
   Box,
   ClickAwayListener,
+  Fade,
   InputAdornment,
   List,
   ListItem,
@@ -63,16 +64,16 @@ type Props = {
 };
 
 const CustomAutocomplete = ({ value, onChange, options }: Props) => {
-  const [searchBox, setSearchBox] = useState(false);
+  const [openSearchBox, setOpenSearchBox] = useState(false);
   const [search, setSearch] = useState('');
   const [pendingValue, setPendingValue] = useState<ValueType>();
 
   const handleClick = () => {
-    setSearchBox(true);
+    setOpenSearchBox(true);
   };
 
   const handleClose = () => {
-    setSearchBox(false);
+    setOpenSearchBox(false);
     setSearch('');
   };
 
@@ -104,34 +105,35 @@ const CustomAutocomplete = ({ value, onChange, options }: Props) => {
         }}
         onClick={handleClick}
       />
-      {searchBox && (
+      {openSearchBox && (
         <Box>
           <ClickAwayListener onClickAway={handleClose}>
-            <StyledSearchBox>
-              <Box my={2} width="140px" height="5px" borderRadius="100px" bgcolor="#C4C4C4" />
-              <CustomInput
-                fullWidth
-                placeholder="Select account"
-                value={search}
-                onChange={handleSearch}
-                InputProps={{
-                  sx: {
-                    fontWeight: '400 !important',
-                    fontSize: '20px !important',
-                    lineHeight: '27px !important',
-                  },
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <Iconify icon="akar-icons:search" color="#4F4F4F" height={16} width={16} />
-                    </InputAdornment>
-                  ),
-                }}
-              />
-              <Scrollbar sx={{ width: 1, mt: 1 }}>
-                <StyledList>
-                  {options.map(
-                    (option, idx) =>
-                      option.label.includes(search) && (
+            <Fade in={openSearchBox}>
+              <StyledSearchBox>
+                <Box my={2} width="140px" height="5px" borderRadius="100px" bgcolor="#C4C4C4" />
+                <CustomInput
+                  fullWidth
+                  placeholder="Select account"
+                  value={search}
+                  onChange={handleSearch}
+                  InputProps={{
+                    sx: {
+                      fontWeight: '400 !important',
+                      fontSize: '20px !important',
+                      lineHeight: '27px !important',
+                    },
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <Iconify icon="akar-icons:search" color="#4F4F4F" height={16} width={16} />
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+                <Scrollbar sx={{ width: 1, mt: 1 }}>
+                  <StyledList>
+                    {options
+                      .filter((option) => option.label.toLowerCase().includes(search))
+                      .map((option, idx) => (
                         <ListItem key={idx} onClick={() => handleSelect(option)}>
                           <Stack direction="row" py={1} spacing={0.75} width={1}>
                             <CustomAvatar
@@ -141,11 +143,11 @@ const CustomAutocomplete = ({ value, onChange, options }: Props) => {
                             <CustomTypography size="md">{option.label}</CustomTypography>
                           </Stack>
                         </ListItem>
-                      )
-                  )}
-                </StyledList>
-              </Scrollbar>
-            </StyledSearchBox>
+                      ))}
+                  </StyledList>
+                </Scrollbar>
+              </StyledSearchBox>
+            </Fade>
           </ClickAwayListener>
         </Box>
       )}
