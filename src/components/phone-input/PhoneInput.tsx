@@ -144,7 +144,7 @@ const PhoneInput = ({ value, onChange }: Props) => {
                 <Stack spacing={1}>
                   {defaultCountries
                     .map((c) => parseCountry(c))
-                    .filter((c) => c.name.toLowerCase().includes(search))
+                    .filter((c) => c.name.toLowerCase().includes(search.toLowerCase()))
                     .map((c, idx) => (
                       <CountryListItem
                         key={idx}
